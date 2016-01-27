@@ -22,10 +22,11 @@ public class UnstableCursorLoader extends CursorLoader {
 
   private static final int MAX_RETRY_ATTEMPTS = 5;
   private static final long RETRY_DELAY_MS = 300;
-  final ForceLoadContentObserver mObserver;
 
-  CancellationSignal mCancellationSignal;
-  ContentProviderClient mContentProviderClient;
+  private final ForceLoadContentObserver mObserver;
+
+  private CancellationSignal mCancellationSignal;
+  private ContentProviderClient mContentProviderClient;
 
   /**
    * Creates an empty unspecified CursorLoader.  You must follow this with
@@ -34,6 +35,7 @@ public class UnstableCursorLoader extends CursorLoader {
    */
   public UnstableCursorLoader(Context context) {
     super(context);
+
     mObserver = new ForceLoadContentObserver();
   }
 
@@ -46,6 +48,7 @@ public class UnstableCursorLoader extends CursorLoader {
   public UnstableCursorLoader(Context context, Uri uri, String[] projection, String selection,
                               String[] selectionArgs, String sortOrder) {
     super(context, uri, projection, selection, selectionArgs, sortOrder);
+
     mObserver = new ForceLoadContentObserver();
   }
 

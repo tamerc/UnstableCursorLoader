@@ -1,7 +1,7 @@
 group = 'org.tme.unstablecursorloader'
 version = '1'
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 apply plugin: 'android-maven'
 
 repositories {
